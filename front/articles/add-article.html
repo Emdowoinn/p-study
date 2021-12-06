@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#get-article").click(function () {
+          $.ajax({
+            url: "http://localhost:3000/articles", // 通信先のURL
+            type: "GET", // 使用するHTTPメソッド
+            dataType: "json", // 応答のデータの種類
+          })
+            .done(function (data) {
+              $(".result").html(data);
+              console.log(data);
+            })
+            .fail(function (data) {
+              $(".result").html(data);
+              console.log(data);
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button class="get-article" type="button" id="get-article">記事取得</button>
+    <div class="result"></div>
+  </body>
+</html>
