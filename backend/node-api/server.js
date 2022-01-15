@@ -18,7 +18,7 @@ var routes = require("./routes/articleRoute"); // Routeのインポート
 routes(app); //appにRouteを設定する。
 
 app.use(cors());
-app.options("localhost:8080", cors());
+// app.options("localhost:8080", cors());
 
 app.listen(port); // appを特定のportでlistenさせる。
 
